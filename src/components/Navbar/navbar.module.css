@@ -1,0 +1,7 @@
+.navbar {
+    width: 260px;
+    border-right: 1px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+    /* position: fixed; */
+}
