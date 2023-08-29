@@ -12,6 +12,10 @@
   margin: 0;
 }
 
+body {
+    --primary: #50b7f5;
+}
+
 html,
 body {
   max-width: 100vw;

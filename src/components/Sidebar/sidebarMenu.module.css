@@ -1,0 +1,8 @@
+.sidebarMenu {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.sidebarMenu .iconStyle {
+    font-size: 27px;
+}

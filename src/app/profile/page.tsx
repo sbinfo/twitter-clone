@@ -1,5 +1,5 @@
 import styles from "../page.module.css";
-import Navbar from "@/components/Navbar/Navbar";
+import Navbar from "@/components/Sidebar/Sidebar";
 
 export default function Profile() {
     return (
