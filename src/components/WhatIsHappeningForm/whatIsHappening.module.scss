@@ -1,0 +1,59 @@
+.whatIsHappening {
+    border-bottom: 1px solid var(--background);
+
+    & > div { 
+        width: 100%;
+        display: flex;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 10px;
+    }
+
+    .avatar {
+        margin-right: 12px;
+    }
+}
+
+.InputForm {
+    width: 100%;
+
+    .form {
+        width: 100%;
+    }
+
+    .actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        margin-top: 8px;
+        border-top: 1px solid var(--background);
+
+        .buttonIcons {
+
+        }
+
+        .fileUpload {
+            color: var(--primary);
+        }
+
+        .postAndProgress {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .messageProgress {
+            color: var(--primary);
+        }
+    
+        .postButton {
+            height: 36px;
+            padding: 0 16px;
+            background-color: var(--primary);
+            border-radius: 50px;
+            text-transform: capitalize;
+        }
+    }
+}

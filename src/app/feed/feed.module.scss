@@ -1,0 +1,13 @@
+.feed {
+
+    .title {  
+        display: flex;
+        align-items: center;   
+        padding-left: 16px;
+        padding-right: 16px; 
+
+        height: 54px;
+        font-size: 20px;
+        border-bottom: 1px solid var(--background);
+    }
+}
