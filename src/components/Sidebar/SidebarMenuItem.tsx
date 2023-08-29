@@ -1,10 +1,12 @@
-import { ReactNode, useState } from "react"
+import { ReactNode } from "react"
+// Next
 import Link from "next/link"
-import { usePathname } from "next/navigation";
+import { usePathname } from "next/navigation"
 import { Url } from "next/dist/shared/lib/router/router"
-
-import style from './sidebarMenuItem.module.scss'
+// Material
 import { IconButton } from "@mui/material"
+import style from './sidebarMenuItem.module.scss'
+
 
 type MenuItemPropsType = {
     link: Url,
@@ -26,7 +28,10 @@ function SidebarMenuItem({ link, icon, activeIcon, title }: MenuItemPropsType) {
         <li>
             <Link href={link}>
                 <div className={classes}>
-                    <IconButton size="large" style={{ color: 'black' }}>
+                    <IconButton
+                        className={style.sidebarIconButton}
+                        size="large"
+                    >
                         { menuIcon }
                     </IconButton>
                     <h3 className={style.title}>{title}</h3>

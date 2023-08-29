@@ -3,20 +3,29 @@
     align-items: center;
     cursor: pointer;
     transition: 0.2s;
-}
 
-.sidebarMenuItem:hover {
-    background-color: #cccccc4c;
-    border-radius: 30px;
-}
+    &:hover {
+        background-color: var(--background);
+        border-radius: 30px;
+    }    
 
-.sidebarMenuItem .title {
-    font-size: 20px;
-    font-weight: 400;
-}
+    .sidebarIconButton {
+        color: black;
+    }
 
-.sidebarMenuItem__active {
     .title {
-        font-weight: 600;
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    &__active {
+        .sidebarIconButton {
+            color: var(--primary);
+        }
+    
+        .title {
+            color: var(--primary);
+            font-weight: 600;
+        }
     }
 }
