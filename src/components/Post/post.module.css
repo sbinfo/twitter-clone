@@ -1,0 +1,77 @@
+.post {
+    width: 100%;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-bottom: 1px solid var(--background);
+}
+
+.postAvatar {
+    margin-top: 4px;
+    margin-right: 12px;
+}
+
+.postBody {
+    width: 100%;
+}
+
+.postHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.postUserInfo {
+    display: flex;
+    font-size: 15px;
+    color: #6d8a9e;
+}
+
+.postUserDisplayName {
+    color: #000;
+    font-weight: 600;
+}
+
+.postVerified {
+    margin-left: 4px;
+    color: var(--primary);
+}
+
+.postHeaderOptions {
+    
+}
+
+.postContent {
+    font-size: 14px;
+    color: var(--text-black);
+}
+
+.postImage {
+    max-width: 100%;
+    border-radius: 12px;
+    margin-top: 12px;
+}
+
+.postFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px;
+}
+
+.postFooterButton {
+    display: flex;
+    align-items: center;
+}
+
+.postFooterIcon {
+    font-size: 18px;
+}
+
+.postFooterButton span {
+    font-size: 13px;
+    color: var(--text-gray);
+}
