@@ -14,11 +14,27 @@
     }
 }
 
-.InputForm {
+.inputForm {
     width: 100%;
 
     .form {
         width: 100%;
+    }
+
+    .whoCanReply {
+        display: inline-flex;
+        align-items: center;
+        padding: 5px 8px;
+        color: var(--primary);
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 50px;
+        transition: .3s ease-out;
+
+        &:hover {
+            background-color: var(--primary-hover);
+        }
     }
 
     .actions {
@@ -30,9 +46,7 @@
         margin-top: 8px;
         border-top: 1px solid var(--background);
 
-        .buttonIcons {
-
-        }
+        .buttonIcons { }
 
         .fileUpload {
             color: var(--primary);
