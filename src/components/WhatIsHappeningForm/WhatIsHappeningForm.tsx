@@ -38,6 +38,12 @@ const InputForm = () => {
         setFormText(e.target.value)
     }
 
+    const onKeyDownHandler = (event: React.KeyboardEvent<HTMLDivElement>) => {
+        if (event.code === 'Enter') {
+            createPost()
+        }
+    }
+
     const createPost = () => {
         const newPost: IPost = {
             id: Date.now().toString(),
@@ -50,6 +56,7 @@ const InputForm = () => {
             text: formText
         }
         dispatch(addPost(newPost))
+        setFormText('')
     }
 
     return (
@@ -57,6 +64,7 @@ const InputForm = () => {
             <TextField
                 value={formText}
                 onChange={onChangeHandler}
+                onKeyDown={onKeyDownHandler}
                 id="standard-basic"
                 variant="standard"
                 placeholder="What is happening?"
@@ -200,7 +208,7 @@ const InputFormActions = ({ createPost }: InputFormActionsType) => {
                 <Button
                     variant="contained"
                     className={styles.postButton}
-                    onClick={createPost}
+                    onClick={() => createPost()}
                 >
                     Post
                 </Button>
