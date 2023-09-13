@@ -1,18 +1,7 @@
 import { Avatar, Icon, IconButton } from "@mui/material"
-
 import styles from "./post.module.css"
 
-type PostPropsType = {
-    displayName: string,
-    userName: string,
-    verified: Boolean
-    avatar: string,
-    text: string,
-    postTime: string,
-    file: string // ispravit
-}
-
-export default function Post(props: PostPropsType) {
+export default function Post(props: IPost) {
     const {
         displayName,
         userName,
@@ -20,7 +9,7 @@ export default function Post(props: PostPropsType) {
         avatar,
         text,
         postTime,
-        file
+        fileUrl
     } = props
 
     return (
@@ -37,7 +26,7 @@ export default function Post(props: PostPropsType) {
                 />
                 <PostContent
                     text={text}
-                    file={file}
+                    fileUrl={fileUrl}
                 />
                 <PostFooter />
             </div>
@@ -78,17 +67,17 @@ function PostHeader({ displayName, userName, verified, postTime }: PostHeaderPro
 
 type PostContentPropsType = {
     text: string,
-    file: string
+    fileUrl: string
 }
 
-function PostContent({ text, file }: PostContentPropsType) {
+function PostContent({ text, fileUrl }: PostContentPropsType) {
 
-    const postImage = <img src={file} alt="post image" className={styles.postImage} />
+    const postImage = <img src={fileUrl} alt="post image" className={styles.postImage} />
 
     return (
         <div className={styles.postContent}>
             {text}
-            {file && postImage}
+            {fileUrl && postImage}
         </div>
     )
 }
@@ -99,6 +88,7 @@ import RepostIcon from '@mui/icons-material/RepeatOutlined'
 import LikeIcon from '@mui/icons-material/FavoriteBorderOutlined'
 import ViewIcon from '@mui/icons-material/VisibilityOutlined'
 import ShareIcon from '@mui/icons-material/FileUploadOutlined'
+import IPost from "@/store/models/IPost";
 
 function PostFooter() {
     return (

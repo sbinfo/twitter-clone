@@ -1,7 +1,7 @@
 .whatIsHappening {
     border-bottom: 1px solid var(--background);
 
-    & > div { 
+    & > div {
         width: 100%;
         display: flex;
         padding-left: 16px;
@@ -11,14 +11,6 @@
 
     .avatar {
         margin-right: 12px;
-    }
-}
-
-.inputForm {
-    width: 100%;
-
-    .form {
-        width: 100%;
     }
 
     .whoCanReply {
@@ -30,11 +22,30 @@
         font-weight: 600;
         cursor: pointer;
         border-radius: 50px;
-        transition: .3s ease-out;
+        transition: 0.3s ease-out;
 
         &:hover {
             background-color: var(--primary-hover);
         }
+
+        // .red {
+        //     color: red;
+        // }
+
+        // .listItemIcon {
+        //     padding: 8px;
+        //     background: var(--primary);
+        //     border-radius: 50%;
+        //     margin-right: 10px;
+        // }
+    }
+}
+
+.inputForm {
+    width: 100%;
+
+    .form {
+        width: 100%;
     }
 
     .actions {
@@ -46,7 +57,7 @@
         margin-top: 8px;
         border-top: 1px solid var(--background);
 
-        .buttonIcons { }
+        .buttonIcons {}
 
         .fileUpload {
             color: var(--primary);
@@ -61,7 +72,7 @@
         .messageProgress {
             color: var(--primary);
         }
-    
+
         .postButton {
             height: 36px;
             padding: 0 16px;

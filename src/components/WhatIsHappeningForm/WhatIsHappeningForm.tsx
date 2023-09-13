@@ -10,7 +10,10 @@ import PersonAddIcon from '@mui/icons-material/PersonAddAlt1Rounded';
 import PublicIcon from '@mui/icons-material/Public';
 import EmailIcon from '@mui/icons-material/AlternateEmailRounded';
 
-import styles from "./whatIsHappening.module.scss"
+import styles from "./whatIsHappening.module.scss";
+import { useAppDispatch, useAppSelector } from '@/store/hooks/hooks';
+import IPost from '@/store/models/IPost';
+import { getCurretDate } from '@/functions/date-functions';
 
 export const WhatIsHappeningForm = () => {
     return (
@@ -23,10 +26,37 @@ export const WhatIsHappeningForm = () => {
     )
 }
 
+import { addPost } from '../../store/slices/postSlice'
+
 const InputForm = () => {
+    const [formText, setFormText] = React.useState("")
+    
+    const dispatch = useAppDispatch()
+    
+
+    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormText(e.target.value)
+    }
+
+    const createPost = () => {
+        const newPost: IPost = {
+            id: Date.now().toString(),
+            displayName: "Said Babaiev",
+            userName: "Random9",
+            avatar: "",
+            fileUrl: "",
+            verified: true,
+            postTime: getCurretDate(),
+            text: formText
+        }
+        dispatch(addPost(newPost))
+    }
+
     return (
         <div className={styles.inputForm}>
             <TextField
+                value={formText}
+                onChange={onChangeHandler}
                 id="standard-basic"
                 variant="standard"
                 placeholder="What is happening?"
@@ -39,7 +69,7 @@ const InputForm = () => {
                 }}
             />
             <WhoCanReply />
-            <InputFormActions />
+            <InputFormActions createPost={createPost} />
         </div>
     )
 }
@@ -56,6 +86,14 @@ enum CanReply {
     YouFollow = 'People you follow',
     YouMention = 'Only people you mention'
 }
+
+const whoCanReplyStyle = {
+    padding: '8px',
+    background: '#1d9bf0',
+    borderRadius: '50%',
+    marginRight: '10px'
+}
+
 
 const WhoCanReply = () => {
 
@@ -102,38 +140,19 @@ const WhoCanReply = () => {
                     </div>
                     <MenuList>
                         <MenuItem onClick={() => changeAuditory(CanReply.EveryOne)}>
-                            <ListItemIcon style={{
-                                padding: '8px', 
-                                background: '#1d9bf0', 
-                                borderRadius: '50%', 
-                                marginRight: '10px'
-                            }}>
+                            <ListItemIcon style={whoCanReplyStyle}>
                                 <PublicIcon style={{ color: '#fff', fontSize: '20px' }} />
                             </ListItemIcon>
                             <ListItemText>{CanReply.EveryOne}</ListItemText>
                         </MenuItem>
                         <MenuItem onClick={() => changeAuditory(CanReply.YouFollow)}>
-                            <ListItemIcon
-                                style={{
-                                    padding: '8px', 
-                                    background: '#1d9bf0', 
-                                    borderRadius: '50%', 
-                                    marginRight: '10px'
-                                }}
-                            >
-                                <PersonAddIcon style={{ color: '#fff', fontSize: '20px' }}  />
+                            <ListItemIcon style={whoCanReplyStyle}>
+                                <PersonAddIcon className={styles.ListItemIcon} style={{ color: '#fff', fontSize: '20px' }} />
                             </ListItemIcon>
                             <ListItemText>{CanReply.YouFollow}</ListItemText>
                         </MenuItem>
                         <MenuItem onClick={() => changeAuditory(CanReply.YouMention)}>
-                            <ListItemIcon
-                                style={{
-                                    padding: '8px', 
-                                    background: '#1d9bf0', 
-                                    borderRadius: '50%', 
-                                    marginRight: '10px'
-                                }}
-                            >
+                            <ListItemIcon style={whoCanReplyStyle}>
                                 <EmailIcon style={{ color: '#fff', fontSize: '20px' }} />
                             </ListItemIcon>
                             <ListItemText>{CanReply.YouMention}</ListItemText>
@@ -145,7 +164,12 @@ const WhoCanReply = () => {
     )
 }
 
-const InputFormActions = () => {
+
+type InputFormActionsType = {
+    createPost: Function;
+}
+
+const InputFormActions = ({ createPost }: InputFormActionsType) => {
     return (
         <div className={styles.actions}>
             <div className={styles.buttonIcons}>
@@ -176,6 +200,7 @@ const InputFormActions = () => {
                 <Button
                     variant="contained"
                     className={styles.postButton}
+                    onClick={createPost}
                 >
                     Post
                 </Button>
